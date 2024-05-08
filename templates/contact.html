@@ -1,0 +1,113 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'stylesheet/contact.css'%}">
+</head>
+<body>
+        
+    <nav class="navbar">
+        <div id="navbar-toggle">
+            <button id="nav-toggle-btn">&#9776;</button>
+        </div>
+        <div id="nav-link-container">
+            <a href="{% url 'About me' %}" class="navlink" id="currentPage">About Me</a>
+            <a href="{% url 'Favorite Emojis' %}" class="navlink">Favorite Emoji</a>
+            <a href="{% url 'Photo gallery' %}" class="navlink">Photos</a>
+            <a href="{% url 'Things I live by' %}" class="navlink">Things I live By</a>
+            <a href="{% url 'Contact Me' %}" class="navlink">Contact</a>
+            <a href="{% url 'Todo-list' %}" class="navlink">Todo List</a>
+        <div>
+        <a href="{% url 'logout' %}" id="logout">Logout</a>
+    </nav>
+    
+    <main>
+        <h1>Customer Contact Form</h1>
+        <h3>Let Us know how we can help you!</h3>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li id="message">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="" class="contactForm" id="contactFormContainer" method="POST">
+            <h2>Full Name</h2>
+            {% csrf_token %}
+            {{ form.firstname }}
+            {{ form.lastname }}
+            <label for="firstName">First Name</label>
+            <label for="lastName">Last Name</label>
+            <h2>Address</h2>
+            {{ form.streetaddress }}
+            <label for="streetaddress">Street Address</label>
+            {{ form.streetaddress2 }}
+            <label for="address2">Street Address 2</label>
+            {{ form.city }}
+            {{ form.stateprovince }}
+            <label for="city">City</label>
+            <label for="state">State/Province</label>
+            {{ form.zipcode }}
+            <label for="zipcode">Postal/Zip Code</label>
+            <h2>Contact Number</h2>
+            <h2>Email Address</h2>
+            {{ form.phonenumber }}
+            {{ form.email }}
+            <label for="contactNum">Please enter a valid phone number.</label>
+            <label for="email">example@example.com</label>    
+            <h2>How did you hear about us?</h2>
+            {{form.hearaboutus}}
+            <h2>Feedback about us:</h2>
+            {{form.feedback}}
+            <h2>Suggestion if any for further improvement:</h2>
+            {{form.suggestion}}
+            <h2>Will you be willing to recommend us?</h2>
+            {{form.recommend}}
+            <h2>Could you please supply references for two people you believe might be potential new customers?</h2>
+            <div class="potential" id="potential">
+                <div class="small"></div>
+                <div class="grid-item colored">Full Name</div>
+                <div class="grid-item colored">Address</div>
+                <div class="grid-item colored">Contact</div>
+                <div class="grid-item small colored">1</div>
+                <div class="grid-item"> {{form.twofullname1}}</div>
+                <div class="grid-item"> {{form.twoaddress1}}</div>
+                <div class="grid-item"> {{form.twocontact1}}</div>
+                <div class="grid-item small colored">2</div>
+                <div class="grid-item"> {{form.twofullname2}}</div>
+                <div class="grid-item"> {{form.twoaddress2}}</div>
+                <div class="grid-item">  {{form.twocontact2}}</div>
+            </div>
+                <button type="submit">Submit</button></div>
+
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            {{ field|title }}: {{ error }}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+
+        </form>
+    </main>
+    <footer>
+        <p>&copy; ABOUT ME by Bryan Antier</p>
+        <div>
+            <a href="https://www.facebook.com/bryan.antier"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/bryanantier/"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/bryanantier7gm1"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/Bryan141816"><i class="fab fa-github"></i></a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'scripts/contact.js'%}"></script>
+</body>
+</html>

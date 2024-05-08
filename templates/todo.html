@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo List</title>
+        <link rel="stylesheet" href="{% static 'stylesheet/todo.css'%}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    </head>
+<body>
+    <nav class="navbar">
+        <div id="navbar-toggle">
+            <button id="nav-toggle-btn">&#9776;</button>
+        </div>
+        <div id="nav-link-container">
+            <a href="{% url 'About me' %}" class="navlink" id="currentPage">About Me</a>
+            <a href="{% url 'Favorite Emojis' %}" class="navlink">Favorite Emoji</a>
+            <a href="{% url 'Photo gallery' %}" class="navlink">Photos</a>
+            <a href="{% url 'Things I live by' %}" class="navlink">Things I live By</a>
+            <a href="{% url 'Contact Me' %}" class="navlink">Contact</a>
+            <a href="{% url 'Todo-list' %}" class="navlink">Todo List</a>
+        <div>
+        <a href="{% url 'logout' %}" id="logout">Logout</a>
+    </nav>
+    <main>
+        <h1>To-Do-List</h1>
+        <form id="todo-form" action="" method="POST">
+            {% csrf_token %}
+             {{ form.task }}
+            <button id="addButton" type="submit"><i class="fas fa-plus"></i></button>
+        </form>
+        {% if ongoing %}
+        <h3>Ongoing Tasks</h3>
+        <ul id="todo-list">
+            {% for task in ongoing %}
+            <li {% if task.status %} class="completed"{% endif %}>
+                <span class="todo-text ">{{ task.task }}</span>
+                <div class="buttonDiv">
+                        <form action="{% url 'complete_task' task.taskid %}" method="post" class="complete-form">
+                            {% csrf_token %}
+                            <button class="complete">
+                                <i class="fas fa-check"></i>
+                            </button>
+                        </form>
+                        <form action="{% url 'delete_task' task.taskid %}" method="post" class="delete-form">
+                            {% csrf_token %}
+                            <button type="submit" class="delete">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No ongoing task.</h3>
+    {% endif %}
+    {% if done %}
+        <h3>Completed Tasks</h3>
+        <ul id="todo-list">
+            {% for task in done %}
+            <li {% if task.status %} class="completed"{% endif %}>
+                <span class="todo-text ">{{ task.task }}</span>
+                    <div class="completeDate">
+                        <i class="fas fa-check"></i>
+                        <label class="dateText">{{task.date_done}} {{task.time_done}}</label>
+                    </div>
+                <div class="buttonDiv">
+                    <form action="{% url 'delete_task' task.taskid %}" method="post" class="delete-form">
+                        {% csrf_token %}
+                        <button type="submit" class="delete">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </form>
+                    
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    </main>
+    
+    
+    <footer>
+        <p>&copy; ABOUT ME by Bryan Antier</p>
+        <div>
+            <a href="https://www.facebook.com/bryan.antier"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/bryanantier/"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/bryanantier7gm1"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/Bryan141816"><i class="fab fa-github"></i></a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--<script src="{% static 'scripts/todo.js'%}"></script>-->
+</body>
+</html>

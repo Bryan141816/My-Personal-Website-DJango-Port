@@ -1,0 +1,161 @@
+@import url('nav&footer.css');
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+html, body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+h1{
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+}
+h3{
+    font-size: 20px;
+    font-weight: 200;
+    margin: 10px;
+    padding-bottom: 40px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgb(94, 93, 93);
+}
+.contactForm{
+    display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding-left: 20rem;
+  padding-right: 20rem;
+  margin-top: 2rem;
+}
+.contactForm :nth-child(1){
+    grid-column: span 2;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+    margin: 0;
+}
+#message{
+    font-size: 20px;
+    list-style-type: none; 
+    color: green;
+}
+
+.contactForm :nth-child(n+7):nth-child(-n+11),.contactForm :nth-child(n+16):nth-child(-n+17){
+    grid-column: span 2;
+}
+.contactForm :nth-child(n+24):nth-child(-n+29){
+    grid-column: span 2;
+}
+.contactForm div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    grid-column: span 2;
+}
+.buttoncontainer{
+    display: flex;
+}
+.contactForm button{
+    justify-self: center;
+    margin-top: 30px;
+    height: 40px;
+    width: 20%;
+    font-size: 20px;
+    grid-column: span 2;
+    color: white;
+    border: none;
+    background-color: rgb(49, 49, 255);
+    border-radius: 10px;
+}
+
+.contactForm h2{
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+    margin: 0;
+}
+.contactForm input, .contactForm select{
+    height: 40px;
+    border: 1px solid rgb(116, 116, 116);
+}
+.contactForm option{
+    font-size: 18px;
+    font-weight: 300;
+}
+.contactForm textarea{
+    resize: none;
+    margin-bottom: 16px;
+}
+.contactForm label{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(36, 36, 36);
+    margin-bottom: 16px;
+}
+#id_recommend{
+    display: inline-block;
+    flex-direction: row;
+}
+#id_recommend div{
+    display: flex;
+}
+#id_recommend label {
+    display: inline-flex;
+    flex-direction: row;
+    width: auto;
+    margin: 0;
+    margin-bottom: 10px;
+    align-items: center;
+
+}
+#id_recommend input[type="radio"] {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px; /* Adjust spacing between radio buttons and labels */
+    vertical-align: middle; /* Align the radio buttons vertically center with labels */
+}
+
+#potential {
+    display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Two columns */
+  align-items: center;
+}
+#potential div{
+    grid-column: span 2;
+}
+
+.grid-item {
+    background-color: #ffffff; /* Background color of grid items */
+    text-align: center; /* Align content to center */
+    outline: 1px solid black;
+    height: 60px;
+}
+#potential .small{
+    grid-column: span 1;
+}
+#potential .colored{
+    background-color: #dbdbdb;
+    justify-content: center;
+    font-size: 20px;
+}
+#potential input{
+    width: 100%;
+    height: 100%;
+    border: none;
+}

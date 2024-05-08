@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos</title>
+    <link rel="stylesheet" href="{% static 'stylesheet/photos.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+        <!-- Add a modal container for the full-screen image -->
+    <div id="modalContainer" class="modalContainer">
+        <span class="closeBtn">&times;</span>
+        <img id="fullScreenImage" class="fullScreenImage" src="" alt="Full Screen Image">
+        <!-- Navigation buttons -->
+        <button id="prevBtn" class="navBtn">&lt;</button>
+        <button id="nextBtn" class="navBtn">&gt;</button>
+    </div>
+
+    <nav class="navbar">
+        <div id="navbar-toggle">
+            <button id="nav-toggle-btn">&#9776;</button>
+        </div>
+        <div id="nav-link-container">
+            <a href="{% url 'About me' %}" class="navlink" id="currentPage">About Me</a>
+            <a href="{% url 'Favorite Emojis' %}" class="navlink">Favorite Emoji</a>
+            <a href="{% url 'Photo gallery' %}" class="navlink">Photos</a>
+            <a href="{% url 'Things I live by' %}" class="navlink">Things I live By</a>
+            <a href="{% url 'Contact Me' %}" class="navlink">Contact</a>
+            <a href="{% url 'Todo-list' %}" class="navlink">Todo List</a>
+        <div>
+        <a href="{% url 'logout' %}" id="logout">Logout</a>
+    </nav>
+
+    <h2 id="mainText">My Photo Gallery</h2>
+    <main>
+
+        <div class="imageBox left-right"></div>
+        <div class="imageBox top-bottom"></div>
+        <div class="imageBox right-left"></div>
+        <div class="imageBox bottom-top"></div>
+    </main>
+    <footer>
+        <p>&copy; ABOUT ME by Bryan Antier</p>
+        <div>
+            <a href="https://www.facebook.com/bryan.antier"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/bryanantier/"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/bryanantier7gm1"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/Bryan141816"><i class="fab fa-github"></i></a>
+            <!-- Add more social media links as needed -->
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'scripts/photos.js'%}"></script>
+</body>
+</html>

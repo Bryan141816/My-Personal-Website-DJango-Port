@@ -1,0 +1,309 @@
+@import url("nav&footer.css");
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+html, body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+main{
+    margin-bottom: 7rem;
+}
+@media only screen and (min-width: 768px){
+    #mainText{
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #mainText h2{
+        font-size: 4rem;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+        padding-left: 3rem;
+    }
+    #mainText h3{
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        padding-right: 2rem;
+    }
+    #mainImage{
+        margin: 0;
+        margin-top: 3rem;
+        height: 40rem;
+        width: 100%;
+        background-image: url('../assets/images/photosGallery/image4.jpg'); /* Set the background image */
+        background-size: cover; /* Cover the entire div with the background image */
+        background-position: 0px -400px;
+    }
+    #factSection{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        margin-top: 4rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+        
+    }
+    #fact{
+        font-size: 2.5rem;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        padding-left: 3rem;
+    }
+    
+    #factContainer{
+        display: grid;
+        justify-content: center;
+        margin-top: 3rem;
+        grid-template-columns: repeat(3, 30rem);
+        grid-auto-rows: minmax(100px, 40rem);
+        gap: 30px; 
+        width: 100%;
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+    .factBox{
+        border-radius: 30px;
+        transition: transform 0.15s ease-out;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s, transform 0.6s cubic-bezier(0.2, 0.9, 0.5, 1.2);
+    }
+    
+    .factBox.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .factBox div{
+        background-size:cover; 
+        background-position:center;
+        background-repeat: no-repeat;
+    
+        height: 20rem;
+        width: 20rem;
+    }
+    .factBox h3{
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 500;
+        width: 90%;
+    }
+    .factBox h4{
+        color: #ffffff;
+        font-size: 2rem;
+        font-weight: 500;
+        width: 90%;
+        text-align: center;
+    }
+    .factBox:nth-child(1){
+        background-color: #ffc153;
+    }
+    .factBox:nth-child(1) div{
+        background-image: url('../assets/images/cake.png');
+        background-size: 130%;
+    }
+    .factBox:nth-child(2){
+        background-color: #d95067;
+    }
+    .factBox:nth-child(2) div{
+        background-image: url('../assets/images/house.png');
+        background-size: 130%;
+    }
+    .factBox:nth-child(3){
+        background-color: #37c4a8;
+    }
+    .factBox:nth-child(3) div{
+        background-image: url('../assets/images/brush.png');
+        background-size: 115%;
+    }
+    .factBox:nth-child(4){
+        background-color: #804180;
+    }
+    .factBox:nth-child(4) div{
+        background-image: url('../assets/images/guitar.png');
+        background-size: 90%;
+    }
+    .factBox:nth-child(5){
+        background-color: #7dcbfb;
+    }
+    .factBox:nth-child(5) div{
+        background-image: url('../assets/images/speaker.png');
+        background-size: 130%;
+    }
+    .factBox:nth-child(6){
+        background-color: #e3604b;
+    }
+    .factBox:nth-child(6) div{
+        background-image: url('../assets/images/game.png');
+        background-size: 110%;
+    }
+    .factBox:hover{
+        transform: scale(1.02);
+    }
+    .scaled {
+        transform: scale(0.8); 
+        border-radius: 50%; 
+        transition: transform 0.3s ease, border-radius 0.3s ease; 
+    }
+    
+}
+@media only screen and (max-width: 768px) {
+    main{
+        margin-bottom: 1rem;
+    }
+    #mainText{
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    #mainText h2{
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0;
+        padding: 0;
+    }
+    #mainText h3{
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+    }
+    #mainImage{
+        margin: 0;
+        margin-top: 1rem;
+        height: 15rem;
+        width: 100%;
+        background-image: url('../assets/images/photosGallery/image3.jpg'); /* Set the background image */
+        background-size: cover; /* Cover the entire div with the background image */
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.6s ease, border-radius 0.6s ease; 
+
+    }
+    .imageVisible{
+        transform: scale(0.96); /* Initial scale down */
+        border-radius: 20px; /* Initial border radius */
+    }
+    #fact{
+        font-size: 2rem;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    #factSection{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        margin-top: 1rem;
+        padding: 0;
+    }
+    #factContainer{
+       display: flex;
+       gap: 10px;
+       overflow-x: auto;
+       overflow-y: hidden;
+       scroll-snap-type: x mandatory;
+       margin-left: 10px;
+    }
+    .factBox{
+        scroll-snap-align: start;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        align-items: center;
+        margin: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.6s;
+    }
+    .visible{
+        opacity: 1;
+    }
+    .factBox div{
+        background-size:cover; /* Cover the entire div with the background image */
+        background-position:center;
+        background-repeat: no-repeat;
+    
+        height: 15rem;
+        width: 15rem;
+    }
+    .factBox h3{
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 500;
+        width: 90%;
+        text-wrap: wrap;
+    }
+    .factBox h4{
+        color: #ffffff;
+        font-size: 1.4rem;
+        font-weight: 500;
+        width: 90%;
+        text-align: center;
+        text-wrap: wrap;
+    }
+    .factBox:nth-child(1){
+        background-color: #ffc153;
+        margin-left: 10px;
+    }
+    .factBox:nth-child(1) div{
+        background-image: url('../assets/images/cake.png');
+        background-size: 100%;
+    }
+    .factBox:nth-child(2){
+        background-color: #d95067;
+    }
+    .factBox:nth-child(2) div{
+        background-image: url('../assets/images/house.png');
+        background-size: 100%;
+    }
+    .factBox:nth-child(3){
+        background-color: #37c4a8;
+    }
+    .factBox:nth-child(3) div{
+        background-image: url('../assets/images/brush.png');
+        background-size: 90%;
+    }
+    .factBox:nth-child(4){
+        background-color: #804180;
+    }
+    .factBox:nth-child(4) div{
+        background-image: url('../assets/images/guitar.png');
+        background-size: 80%;
+    }
+    .factBox:nth-child(5){
+        background-color: #7dcbfb;
+    }
+    .factBox:nth-child(5) div{
+        background-image: url('../assets/images/speaker.png');
+        background-size: 100%;
+    }
+    .factBox:nth-child(6){
+        background-color: #e3604b;
+        margin-right: 50px;
+    }
+    .factBox:nth-child(6) div{
+        background-image: url('../assets/images/game.png');
+        background-size: 100%;
+    }
+}
