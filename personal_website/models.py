@@ -1,5 +1,9 @@
 from django.db import models
 
+class user(models.Model):
+    email = models.EmailField(primary_key=True)
+    password = models.CharField(max_length=255)
+
 class todo(models.Model):
     taskid = models.AutoField(primary_key=True)
     username = models.CharField(max_length=250)
